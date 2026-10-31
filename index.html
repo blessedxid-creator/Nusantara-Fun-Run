@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nusantara Fun Run 2026 | Run Together, Unite the Nation</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Poppins & Montserrat -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            green: '#004225',
+                            lightgreen: '#15803d',
+                            gold: '#D4AF37',
+                            lightgold: '#F3E5AB',
+                            cream: '#FDFBF7',
+                            dark: '#0B1D13',
+                            gray: '#F4F6F4'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .green-gradient-bg {
+            background: linear-gradient(135deg, #004225 0%, #0B1D13 100%);
+        }
+
+        .page-content {
+            display: none;
+        }
+
+        .page-content.active {
+            display: block;
+            animation: fadeIn 0.4s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-brand-cream text-gray-800 font-sans antialiased flex flex-col min-h-screen">
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div
+        class="bg-brand-gold text-brand-dark font-semibold text-xs md:text-sm py-2 px-4 text-center flex justify-between items-center px-6">
+        <div class="hidden sm:block">🏃‍♂️ Gelora Bung Karno, Jakarta — Minggu, 20 September 2026</div>
+        <div class="mx-auto sm:mx-0">✨ Pendaftaran Kategori 5K, 10K & Half Marathon Masih Dibuka!</div>
+        <div class="hidden md:block">
+            <span class="bg-brand-dark text-brand-gold px-2 py-0.5 rounded text-xs">Target: 1.000 Pelari</span>
+        </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav
+        class="sticky top-0 z-50 bg-brand-green/95 backdrop-blur-md border-b border-brand-gold/30 text-white shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- LOGO -->
+                <div class="flex items-center gap-3 cursor-pointer" onclick="switchPage('home')">
+                    <div
+                        class="w-12 h-12 rounded-full bg-brand-gold/20 flex items-center justify-center border border-brand-gold/50">
+                        <i class="fa-solid font-bold text-2xl text-brand-gold fa-person-running"></i>
+                    </div>
+                    <div>
+                        <div class="font-heading font-black text-lg md:text-xl tracking-wider text-white leading-tight">
+                            NUSANTARA</div>
+                        <div class="font-heading font-bold text-xs tracking-widest text-brand-gold">FUN RUN 2026</div>
+                    </div>
+                </div>
+
+                <!-- DESKTOP MENU TABS -->
+                <div class="hidden lg:flex items-center space-x-1 font-medium text-sm">
+                    <button onclick="switchPage('home')" id="nav-home"
+                        class="nav-btn px-4 py-2 rounded-lg transition hover:bg-white/10 text-brand-gold font-bold">Beranda</button>
+                    <button onclick="switchPage('tentang')" id="nav-tentang"
+                        class="nav-btn px-4 py-2 rounded-lg transition hover:bg-white/10 text-white">Tentang
+                        Acara</button>
+                    <button onclick="switchPage('kategori')" id="nav-kategori"
+                        class="nav-btn px-4 py-2 rounded-lg transition hover:bg-white/10 text-white">Kategori &
+                        Racepack</button>
+                    <button onclick="switchPage('rute')" id="nav-rute"
+                        class="nav-btn px-4 py-2 rounded-lg transition hover:bg-white/10 text-white">Rute &
+                        Jadwal</button>
+                    <button onclick="switchPage('panitia')" id="nav-panitia"
+                        class="nav-btn px-4 py-2 rounded-lg transition hover:bg-white/10 text-white">Kepanitiaan</button>
+                    <button onclick="switchPage('sponsor')" id="nav-sponsor"
+                        class="nav-btn px-4 py-2 rounded-lg transition hover:bg-white/10 text-white">RAB &
+                        Sponsor</button>
+                    <button onclick="switchPage('dokumentasi')" id="nav-dokumentasi"
+                        class="nav-btn px-4 py-2 rounded-lg transition hover:bg-white/10 text-white">Dokumentasi</button>
+                </div>
+
+                <!-- CTA BUTTON -->
+                <div class="hidden sm:flex items-center gap-3">
+                    <button onclick="openModal()"
+                        class="bg-gradient-to-r from-brand-gold to-yellow-500 hover:from-yellow-500 hover:to-brand-gold text-brand-dark font-bold px-5 py-2.5 rounded-full shadow-lg transform hover:-translate-y-0.5 transition duration-200 text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-ticket"></i> Daftar Sekarang
+                    </button>
+                </div>
+
+                <!-- MOBILE MENU BUTTON -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-white hover:text-brand-gold p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- MOBILE MENU DROPDOWN -->
+        <div id="mobile-menu"
+            class="hidden lg:hidden bg-brand-dark/95 border-b border-brand-gold/30 px-4 pt-2 pb-6 space-y-2 text-sm">
+            <button onclick="switchPage('home')"
+                class="block w-full text-left px-3 py-2 rounded hover:bg-white/10 text-brand-gold font-bold">Beranda</button>
+            <button onclick="switchPage('tentang')"
+                class="block w-full text-left px-3 py-2 rounded hover:bg-white/10 text-white">Tentang Acara</button>
+            <button onclick="switchPage('kategori')"
+                class="block w-full text-left px-3 py-2 rounded hover:bg-white/10 text-white">Kategori &
+                Racepack</button>
+            <button onclick="switchPage('rute')"
+                class="block w-full text-left px-3 py-2 rounded hover:bg-white/10 text-white">Rute & Jadwal</button>
+            <button onclick="switchPage('panitia')"
+                class="block w-full text-left px-3 py-2 rounded hover:bg-white/10 text-white">Kepanitiaan &
+                Volunteer</button>
+            <button onclick="switchPage('sponsor')"
+                class="block w-full text-left px-3 py-2 rounded hover:bg-white/10 text-white">RAB & Sponsorship</button>
+            <button onclick="switchPage('dokumentasi')"
+                class="block w-full text-left px-3 py-2 rounded hover:bg-white/10 text-white">Dokumentasi Foto &
+                Video</button>
+            <button onclick="openModal()"
+                class="w-full mt-3 bg-brand-gold text-brand-dark font-bold py-2.5 rounded-xl shadow text-center">Daftar
+                Lari Sekarang</button>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT AREA WITH PAGES -->
+    <main class="flex-grow">
+
+        <!-- ==================== HALAMAN 1: BERANDA ==================== -->
+        <div id="page-home" class="page-content active">
+            <!-- HERO SECTION -->
+            <section
+                class="relative green-gradient-bg text-white overflow-hidden py-16 lg:py-24 border-b border-brand-gold/20">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                            <div
+                                class="inline-flex items-center gap-2 bg-brand-gold/20 border border-brand-gold/40 text-brand-gold px-4 py-1.5 rounded-full text-xs md:text-sm font-semibold">
+                                <i class="fa-solid fa-flag-checkered"></i> Official Event — Manajemen Proyek Kelompok 1
+                            </div>
+                            <h1
+                                class="font-heading text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight uppercase leading-none">
+                                Run Together,<br><span class="gold-gradient-text">Unite the Nation</span>
+                            </h1>
+                            <p class="text-gray-300 text-base md:text-lg max-w-2xl leading-relaxed">
+                                Lari santai berskala kota menggabungkan olahraga, hiburan, dan semangat kebangsaan di
+                                rute ikonik Jakarta. Bersama melangkah untuk Indonesia lebih sehat dan lebih kuat!
+                            </p>
+
+                            <!-- COUNTDOWN TIMER -->
+                            <div
+                                class="bg-black/40 backdrop-blur border border-brand-gold/30 rounded-2xl p-4 md:p-6 my-6 inline-block w-full max-w-lg">
+                                <p
+                                    class="text-xs font-semibold text-brand-gold uppercase tracking-wider mb-3 text-center">
+                                    Menghitung Mundur Menuju Hari-H:</p>
+                                <div class="grid grid-cols-4 gap-2 text-center" id="countdown">
+                                    <div class="bg-brand-green/80 p-2 md:p-3 rounded-lg border border-brand-gold/30">
+                                        <span id="days"
+                                            class="font-heading font-extrabold text-2xl md:text-3xl text-white">00</span>
+                                        <span
+                                            class="block text-[10px] md:text-xs text-gray-300 uppercase mt-1">Hari</span>
+                                    </div>
+                                    <div class="bg-brand-green/80 p-2 md:p-3 rounded-lg border border-brand-gold/30">
+                                        <span id="hours"
+                                            class="font-heading font-extrabold text-2xl md:text-3xl text-white">00</span>
+                                        <span
+                                            class="block text-[10px] md:text-xs text-gray-300 uppercase mt-1">Jam</span>
+                                    </div>
+                                    <div class="bg-brand-green/80 p-2 md:p-3 rounded-lg border border-brand-gold/30">
+                                        <span id="minutes"
+                                            class="font-heading font-extrabold text-2xl md:text-3xl text-white">00</span>
+                                        <span
+                                            class="block text-[10px] md:text-xs text-gray-300 uppercase mt-1">Menit</span>
+                                    </div>
+                                    <div class="bg-brand-green/80 p-2 md:p-3 rounded-lg border border-brand-gold/30">
+                                        <span id="seconds"
+                                            class="font-heading font-extrabold text-2xl md:text-3xl text-brand-gold">00</span>
+                                        <span
+                                            class="block text-[10px] md:text-xs text-gray-300 uppercase mt-1">Detik</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4">
+                                <button onclick="openModal()"
+                                    class="bg-gradient-to-r from-brand-gold to-yellow-500 hover:from-yellow-500 hover:to-brand-gold text-brand-dark font-extrabold px-8 py-4 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 text-base flex items-center gap-3">
+                                    <i class="fa-solid fa-user-plus text-lg"></i> DAFTAR PESERTA SEKARANG
+                                </button>
+                                <button onclick="switchPage('tentang')"
+                                    class="bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-4 rounded-xl border border-white/20 transition duration-300 text-base">
+                                    Pelajari Acara
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- HERO IMAGE BANNER -->
+                        <div class="lg:col-span-5 flex justify-center">
+                            <div class="relative w-full max-w-md">
+                                <div
+                                    class="absolute -inset-1 bg-gradient-to-r from-brand-gold to-brand-green rounded-3xl blur opacity-30">
+                                </div>
+                                <div
+                                    class="relative bg-brand-dark/80 rounded-2xl p-4 border border-brand-gold/30 overflow-hidden shadow-2xl">
+                                    <img src="1.jpeg" alt="Garis Start Nusantara Fun Run GBK"
+                                        class="rounded-xl w-full object-cover shadow-md hover:scale-105 transition duration-500">
+                                    <div
+                                        class="mt-4 p-3 bg-brand-green/50 rounded-lg text-center border border-brand-gold/20">
+                                        <p class="text-xs text-brand-gold font-bold uppercase">Start / Finish Line</p>
+                                        <p class="text-sm font-semibold text-white">Stadion Utama Gelora Bung Karno
+                                            (GBK)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- HIGHLIGHT STATS -->
+            <section class="py-12 bg-white border-b border-gray-200">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                        <div class="p-4 rounded-2xl bg-brand-cream border border-brand-gold/20">
+                            <i class="fa-solid fa-users text-3xl text-brand-green mb-2"></i>
+                            <div class="font-heading font-black text-3xl text-brand-dark">1.000+</div>
+                            <div class="text-xs text-gray-600 font-medium uppercase mt-1">Target Peserta</div>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-brand-cream border border-brand-gold/20">
+                            <i class="fa-solid fa-route text-3xl text-brand-gold mb-2"></i>
+                            <div class="font-heading font-black text-3xl text-brand-dark">3 Kategori</div>
+                            <div class="text-xs text-gray-600 font-medium uppercase mt-1">5K, 10K & Half Marathon</div>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-brand-cream border border-brand-gold/20">
+                            <i class="fa-solid fa-hands-holding-circle text-3xl text-brand-green mb-2"></i>
+                            <div class="font-heading font-black text-3xl text-brand-dark">50 Volunteer</div>
+                            <div class="text-xs text-gray-600 font-medium uppercase mt-1">Dukungan Panitia</div>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-brand-cream border border-brand-gold/20">
+                            <i class="fa-solid fa-music text-3xl text-brand-gold mb-2"></i>
+                            <div class="font-heading font-black text-3xl text-brand-dark">Guest Star</div>
+                            <div class="text-xs text-gray-600 font-medium uppercase mt-1">Wika Salim & Denny Caknan
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ==================== HALAMAN 2: TENTANG ACARA ==================== -->
+        <div id="page-tentang" class="page-content">
+            <section class="py-16 bg-brand-cream">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-3xl mx-auto mb-16">
+                        <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-brand-dark mb-4">Tentang
+                            Nusantara Fun Run 2026</h2>
+                        <div class="w-24 h-1 bg-brand-gold mx-auto mb-4"></div>
+                        <p class="text-gray-600">Menggabungkan olahraga, hiburan, dan kebudayaan dalam satu perayaan
+                            kebangsaan terbesar tahun 2026.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
+                        <div class="space-y-6">
+                            <div class="bg-white p-6 rounded-2xl shadow-lg border-l-4 border-brand-green">
+                                <h3 class="font-heading text-xl font-bold text-brand-dark mb-2">Deskripsi Acara</h3>
+                                <p class="text-gray-600 text-sm leading-relaxed">
+                                    Nusantara Fun Run 2026 adalah acara lari santai berskala kota yang menggabungkan
+                                    olahraga, hiburan, dan semangat kebangsaan. Mengusung tema "Run Together, Unite the
+                                    Nation", acara ini mengajak masyarakat dari berbagai latar belakang untuk berlari
+                                    bersama dengan rute melintasi kawasan ikonik Jakarta.
+                                </p>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="bg-brand-green text-white p-5 rounded-xl">
+                                    <i class="fa-solid fa-calendar-day text-brand-gold text-2xl mb-2"></i>
+                                    <div class="text-xs text-gray-300">Hari & Tanggal</div>
+                                    <div class="font-bold text-sm">Minggu, 20 Sep 2026</div>
+                                </div>
+                                <div class="bg-brand-green text-white p-5 rounded-xl">
+                                    <i class="fa-solid fa-clock text-brand-gold text-2xl mb-2"></i>
+                                    <div class="text-xs text-gray-300">Waktu Pelaksanaan</div>
+                                    <div class="font-bold text-sm">05.00 - 13.00 WIB</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-white p-5 rounded-2xl shadow-md border border-gray-100">
+                                <i class="fa-solid fa-heart-pulse text-red-500 text-3xl mb-3"></i>
+                                <h4 class="font-bold text-brand-dark mb-1">Gaya Hidup Sehat</h4>
+                                <p class="text-xs text-gray-500">Mendorong masyarakat rutin berolahraga dan menjaga
+                                    kebugaran tubuh.</p>
+                            </div>
+                            <div class="bg-white p-5 rounded-2xl shadow-md border border-gray-100">
+                                <i class="fa-solid fa-flag text-brand-gold text-3xl mb-3"></i>
+                                <h4 class="font-bold text-brand-dark mb-1">Semangat Kebangsaan</h4>
+                                <p class="text-xs text-gray-500">Mengenalkan budaya dan nilai Nusantara lewat nuansa
+                                    event.</p>
+                            </div>
+                            <div class="bg-white p-5 rounded-2xl shadow-md border border-gray-100">
+                                <i class="fa-solid fa-handshake text-brand-green text-3xl mb-3"></i>
+                                <h4 class="font-bold text-brand-dark mb-1">Kebersamaan</h4>
+                                <p class="text-xs text-gray-500">Mempererat persatuan antarwarga dan antar komunitas
+                                    lari.</p>
+                            </div>
+                            <div class="bg-white p-5 rounded-2xl shadow-md border border-gray-100">
+                                <i class="fa-solid fa-[#004225] fa-graduation-cap text-3xl mb-3"></i>
+                                <h4 class="font-bold text-brand-dark mb-1">Pengalaman Organisasi</h4>
+                                <p class="text-xs text-gray-500">Melatih kerja sama & kepemimpinan mahasiswa MJ23B SDM.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ==================== HALAMAN 3: KATEGORI & RACEPACK ==================== -->
+        <div id="page-kategori" class="page-content">
+            <section class="py-16 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-3xl mx-auto mb-16">
+                        <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-brand-dark mb-4">Kategori Lari
+                            & Race Pack</h2>
+                        <div class="w-24 h-1 bg-brand-gold mx-auto mb-4"></div>
+                        <p class="text-gray-600">Pilih kategori lari yang sesuai dengan level kebugaran Anda dan
+                            dapatkan merchandise resmi eksklusif.</p>
+                    </div>
+
+                    <!-- KATEGORI CARDS -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                        <!-- 5K -->
+                        <div
+                            class="bg-brand-cream border-2 border-brand-green/20 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition duration-300 relative flex flex-col justify-between">
+                            <div>
+                                <span
+                                    class="bg-brand-green text-white text-xs font-bold px-3 py-1 rounded-full uppercase">Fun
+                                    Run / Beginner</span>
+                                <h3 class="font-heading font-black text-4xl text-brand-dark my-4">5K RUN</h3>
+                                <p class="text-gray-600 text-sm mb-6">Cocok untuk pemula, keluarga, dan pelari santai
+                                    yang ingin menikmati jalanan utama Jakarta.</p>
+                                <ul class="space-y-3 text-sm text-gray-700 mb-8">
+                                    <li class="flex items-center gap-2"><i
+                                            class="fa-solid fa-check text-brand-green"></i> Jersey Eksklusif Dry-Fit
+                                    </li>
+                                    <li class="flex items-center gap-2"><i
+                                            class="fa-solid fa-check text-brand-green"></i> Nomor BIB & Safety Pin</li>
+                                    <li class="flex items-center gap-2"><i
+                                            class="fa-solid fa-check text-brand-green"></i> Medali Finisher Nusantara
+                                    </li>
+                                    <li class="flex items-center gap-2"><i
+                                            class="fa-solid fa-check text-brand-green"></i> Refreshment & Water Station
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="pt-4 border-t border-gray-200 flex items-center justify-between">
+                                <div>
+                                    <span class="text-xs text-gray-500 block">Biaya Pendaftaran</span>
+                                    <span class="font-extrabold text-2xl text-brand-green">Rp 150.000</span>
+                                </div>
+                                <button onclick="openModal()"
+                                    class="bg-brand-green text-white px-4 py-2 rounded-xl text-sm font-bold hover:bg-brand-dark">Pilih
+                                    5K</button>
+                            </div>
+                        </div>
+
+                        <!-- 10K -->
+                        <div
+                            class="bg-brand-green text-white border-2 border-brand-gold rounded-3xl p-8 shadow-xl hover:shadow-2xl transition duration-300 relative flex flex-col justify-between transform md:-translate-y-2">
+                            <div
+                                class="absolute -top-4 right-6 bg-brand-gold text-brand-dark text-xs font-extrabold px-4 py-1 rounded-full shadow">
+                                MOST POPULAR</div>
+                            <div>
+                                <span
+                                    class="bg-brand-gold text-brand-dark text-xs font-bold px-3 py-1 rounded-full uppercase">Intermediate</span>
+                                <h3 class="font-heading font-black text-4xl text-brand-gold my-4">10K RUN</h3>
+                                <p class="text-gray-200 text-sm mb-6">Rute menantang melintasi Jalan Jenderal Sudirman
+                                    hingga Semanggi & Bundaran HI.</p>
+                                <ul class="space-y-3 text-sm text-gray-200 mb-8">
+                                    <li class="flex items-center gap-2"><i
+                                            class="fa-solid fa-check text-brand-gold"></i> Jersey Eksklusif Dry-Fit</li>
+                                    <li class="flex items-center gap-2"><i
+                                            class="fa-solid fa-check text-brand-gold"></i> Nomor BIB & Timing Chip</li>
+                                    <li class="flex items-center gap-2"><i
+                                            class="fa-solid fa-check text-brand-gold"></i> Medali Finisher Logam Ukir
+                                    </li>
+                                    <li class="flex items-center gap-2"><i
+                                            class="fa-solid fa-check text-brand-gold"></i> Tas Serut Racepack + Handuk
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="pt-4 border-t border-brand-gold/30 flex items-center justify-between">
+                                <div>
+                                    <span class="text-xs text-gray-300 block">Biaya Pendaftaran</span>
+                                    <span class="font-extrabold text-2xl text-brand-gold">Rp 150.000</span>
+                                </div>
+                                <button onclick="openModal()"
+                                    class="bg-brand-gold text-brand-dark px-4 py-2 rounded-xl text-sm font-bold hover:bg-yellow-400">Pilih
+                                    10K</button>
+                            </div>
+                        </div>
+
+                        <!-- HALF MARATHON -->
+                        <div
+                            class="bg-brand-cream border-2 border-brand-green/20 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition duration-300 relative flex flex-col justify-between">
+                            <div>
+                                <span
+                                    class="bg-brand-green text-white text-xs font-bold px-3 py-1 rounded-full uppercase">Advanced
+                                    (21K)</span>
+                                <h3 class="font-heading font-black text-4xl text-brand-dark my-4">HALF MARATHON</h3>
+                                <p class="text-gray-600 text-sm mb-6">Uji ketahanan diri Anda untuk jarak 21 Kilometer
+                                    dengan standar keamanan rute penuh.</p>
+                                <ul class="space-y-3 text-sm text-gray-700 mb-8">
+                                    <li class="flex items-center gap-2"><i
+                                            class="fa-solid fa-check text-brand-green"></i> Jersey Eksklusif Dry-Fit
+                                        Premium</li>
+                                    <li class="flex items-center gap-2"><i
+                                            class="fa-solid fa-check text-brand-green"></i> Timing Chip & Digital
+                                        Certificate</li>
+                                    <li class="flex items-center gap-2"><i
+                                            class="fa-solid fa-check text-brand-green"></i> Medali Finisher Premium 21K
+                                    </li>
+                                    <li class="flex items-center gap-2"><i
+                                            class="fa-solid fa-check text-brand-green"></i> Complete Race Pack & Sponsor
+                                        Gifts</li>
+                                </ul>
+                            </div>
+                            <div class="pt-4 border-t border-gray-200 flex items-center justify-between">
+                                <div>
+                                    <span class="text-xs text-gray-500 block">Biaya Pendaftaran</span>
+                                    <span class="font-extrabold text-2xl text-brand-green">Rp 150.000</span>
+                                </div>
+                                <button onclick="openModal()"
+                                    class="bg-brand-green text-white px-4 py-2 rounded-xl text-sm font-bold hover:bg-brand-dark">Pilih
+                                    21K</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ==================== HALAMAN 4: RUTE & JADWAL ==================== -->
+        <div id="page-rute" class="page-content">
+            <section class="py-16 bg-brand-cream">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-3xl mx-auto mb-16">
+                        <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-brand-dark mb-4">Rute Lari &
+                            Susunan Acara (Rundown)</h2>
+                        <div class="w-24 h-1 bg-brand-gold mx-auto mb-4"></div>
+                        <p class="text-gray-600">Simak peta lintasan rute 10K/5K serta urutan jadwal kegiatan dari pagi
+                            hingga penutupan.</p>
+                    </div>
+
+                    <!-- RUTE SUMMARY -->
+                    <div class="bg-white rounded-3xl p-8 shadow-xl border border-gray-200 mb-16">
+                        <h3 class="font-heading text-xl font-bold text-brand-dark mb-6 text-center">Titik Checkpoint
+                            Rute Utama (10K Via Jl. Sudirman)</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-5 gap-4 text-center">
+                            <div class="p-4 bg-brand-cream rounded-2xl border border-brand-green/20">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-brand-green text-white font-bold flex items-center justify-center mx-auto mb-2">
+                                    1</div>
+                                <div class="font-bold text-sm text-brand-dark">GBK (Start/Finish)</div>
+                                <div class="text-xs text-gray-500 mt-1">Garis Awal Lari</div>
+                            </div>
+                            <div class="p-4 bg-brand-cream rounded-2xl border border-brand-green/20">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-brand-green text-white font-bold flex items-center justify-center mx-auto mb-2">
+                                    2</div>
+                                <div class="font-bold text-sm text-brand-dark">Bundaran Senayan</div>
+                                <div class="text-xs text-gray-500 mt-1">Water Station 1</div>
+                            </div>
+                            <div class="p-4 bg-brand-cream rounded-2xl border border-brand-green/20">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-brand-green text-white font-bold flex items-center justify-center mx-auto mb-2">
+                                    3</div>
+                                <div class="font-bold text-sm text-brand-dark">Simpang Semanggi</div>
+                                <div class="text-xs text-gray-500 mt-1">Medic Station</div>
+                            </div>
+                            <div class="p-4 bg-brand-cream rounded-2xl border border-brand-green/20">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-brand-green text-white font-bold flex items-center justify-center mx-auto mb-2">
+                                    4</div>
+                                <div class="font-bold text-sm text-brand-dark">Jl. Jend. Sudirman</div>
+                                <div class="text-xs text-gray-500 mt-1">Water Station 2</div>
+                            </div>
+                            <div class="p-4 bg-brand-cream rounded-2xl border border-brand-green/20">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-brand-gold text-brand-dark font-bold flex items-center justify-center mx-auto mb-2">
+                                    5</div>
+                                <div class="font-bold text-sm text-brand-dark">Bundaran HI</div>
+                                <div class="text-xs text-brand-green font-semibold mt-1">Titik Putar Balik</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- RUNDOWN TABLE -->
+                    <div class="bg-white rounded-3xl p-8 shadow-xl border border-gray-200">
+                        <h3 class="font-heading text-2xl font-bold text-brand-dark mb-6 flex items-center gap-3">
+                            <i class="fa-solid fa-clock text-brand-gold"></i> Rundown Hari-H (Minggu, 20 September 2026)
+                        </h3>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse text-sm">
+                                <thead>
+                                    <tr class="bg-brand-green text-white">
+                                        <th class="p-4 rounded-tl-xl">Waktu (WIB)</th>
+                                        <th class="p-4">Agenda Kegiatan</th>
+                                        <th class="p-4 rounded-tr-xl">PIC / Penanggung Jawab</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-200">
+                                    <tr class="hover:bg-brand-cream">
+                                        <td class="p-4 font-bold text-brand-green">05.00 - 05.30</td>
+                                        <td class="p-4">Persiapan akhir venue dan perlengkapan</td>
+                                        <td class="p-4 text-gray-600">Divisi Logistik & Perlengkapan</td>
+                                    </tr>
+                                    <tr class="hover:bg-brand-cream">
+                                        <td class="p-4 font-bold text-brand-green">05.30 - 05.45</td>
+                                        <td class="p-4">Briefing panitia dan volunteer</td>
+                                        <td class="p-4 text-gray-600">Koordinator Lapangan</td>
+                                    </tr>
+                                    <tr class="hover:bg-brand-cream">
+                                        <td class="p-4 font-bold text-brand-green">05.45 - 06.30</td>
+                                        <td class="p-4">Registrasi ulang peserta</td>
+                                        <td class="p-4 text-gray-600">Divisi Registrasi</td>
+                                    </tr>
+                                    <tr class="hover:bg-brand-cream">
+                                        <td class="p-4 font-bold text-brand-green">06.30 - 07.00</td>
+                                        <td class="p-4">Pembukaan MC, Indonesia Raya, Sambutan & Pemanasan</td>
+                                        <td class="p-4 text-gray-600">Divisi Acara & Instruktur</td>
+                                    </tr>
+                                    <tr class="bg-brand-gold/10 font-bold">
+                                        <td class="p-4 text-brand-green">07.30 - 09.00</td>
+                                        <td class="p-4">PELAKSANAAN NUSANTARA FUN RUN 2026</td>
+                                        <td class="p-4 text-brand-dark">Race Director & Marshal</td>
+                                    </tr>
+                                    <tr class="hover:bg-brand-cream">
+                                        <td class="p-4 font-bold text-brand-green">09.00 - 09.30</td>
+                                        <td class="p-4">Finish, Pembagian Medali & Refreshment</td>
+                                        <td class="p-4 text-gray-600">Divisi Lapangan</td>
+                                    </tr>
+                                    <tr class="hover:bg-brand-cream">
+                                        <td class="p-4 font-bold text-brand-green">09.30 - 10.40</td>
+                                        <td class="p-4">Hiburan Band Lokal, Games & Doorprize Sponsor</td>
+                                        <td class="p-4 text-gray-600">Divisi Entertainment & MC</td>
+                                    </tr>
+                                    <tr class="bg-yellow-50 font-bold">
+                                        <td class="p-4 text-brand-green">10.40 - 11.10</td>
+                                        <td class="p-4">Penampilan Guest Star 1: Wika Salim</td>
+                                        <td class="p-4 text-gray-600">Divisi Entertainment</td>
+                                    </tr>
+                                    <tr class="bg-yellow-100 font-bold">
+                                        <td class="p-4 text-brand-green">11.25 - 12.10</td>
+                                        <td class="p-4">Penampilan Guest Star Utama: Denny Caknan</td>
+                                        <td class="p-4 text-gray-600">Divisi Entertainment</td>
+                                    </tr>
+                                    <tr class="hover:bg-brand-cream">
+                                        <td class="p-4 font-bold text-brand-green">12.10 - 13.00</td>
+                                        <td class="p-4">Penutupan & Pembersihan Venue</td>
+                                        <td class="p-4 text-gray-600">Seluruh Panitia</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ==================== HALAMAN 5: KEPANITIAAN ==================== -->
+        <div id="page-panitia" class="page-content">
+            <section class="py-16 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-3xl mx-auto mb-16">
+                        <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-brand-dark mb-4">Struktur
+                            Panitia Inti & Volunteer</h2>
+                        <div class="w-24 h-1 bg-brand-gold mx-auto mb-4"></div>
+                        <p class="text-gray-600">Dikelola oleh Mahasiswa MJ23B SDM Manajemen Proyek bersama 50 Volunteer
+                            Terpilih.</p>
+                    </div>
+
+                    <!-- PANITIA INTI -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mb-16">
+                        <div class="bg-brand-cream p-6 rounded-2xl border border-brand-green/20 text-center shadow">
+                            <div
+                                class="w-16 h-16 rounded-full bg-brand-green text-brand-gold font-bold text-xl flex items-center justify-center mx-auto mb-3">
+                                1</div>
+                            <h4 class="font-bold text-brand-dark">Nazarruddin Alif</h4>
+                            <p class="text-xs text-brand-green font-semibold">Ketua Pelaksana</p>
+                        </div>
+                        <div class="bg-brand-cream p-6 rounded-2xl border border-brand-green/20 text-center shadow">
+                            <div
+                                class="w-16 h-16 rounded-full bg-brand-green text-brand-gold font-bold text-xl flex items-center justify-center mx-auto mb-3">
+                                2</div>
+                            <h4 class="font-bold text-brand-dark">Aimel Soleha</h4>
+                            <p class="text-xs text-brand-green font-semibold">Sie Acara & Operasional</p>
+                        </div>
+                        <div class="bg-brand-cream p-6 rounded-2xl border border-brand-green/20 text-center shadow">
+                            <div
+                                class="w-16 h-16 rounded-full bg-brand-green text-brand-gold font-bold text-xl flex items-center justify-center mx-auto mb-3">
+                                3</div>
+                            <h4 class="font-bold text-brand-dark">Sheila Puspita</h4>
+                            <p class="text-xs text-brand-green font-semibold">Sie Kreatif & Media</p>
+                        </div>
+                        <div class="bg-brand-cream p-6 rounded-2xl border border-brand-green/20 text-center shadow">
+                            <div
+                                class="w-16 h-16 rounded-full bg-brand-green text-brand-gold font-bold text-xl flex items-center justify-center mx-auto mb-3">
+                                4</div>
+                            <h4 class="font-bold text-brand-dark">Ade Triyana</h4>
+                            <p class="text-xs text-brand-green font-semibold">Sie Humas & Kemitraan</p>
+                        </div>
+                        <div class="bg-brand-cream p-6 rounded-2xl border border-brand-green/20 text-center shadow">
+                            <div
+                                class="w-16 h-16 rounded-full bg-brand-green text-brand-gold font-bold text-xl flex items-center justify-center mx-auto mb-3">
+                                5</div>
+                            <h4 class="font-bold text-brand-dark">Bintang Zahra L.</h4>
+                            <p class="text-xs text-brand-green font-semibold">Sie Logistik & Lokasi</p>
+                        </div>
+                    </div>
+
+                    <!-- VOLUNTEER DIVISION -->
+                    <div class="bg-brand-green text-white p-8 rounded-3xl shadow-xl">
+                        <h3 class="font-heading text-2xl font-bold text-brand-gold mb-6 text-center">Pembagian 50
+                            Volunteer Terpilih</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                            <div class="bg-white/10 p-5 rounded-2xl border border-white/10">
+                                <span class="font-extrabold text-2xl text-brand-gold block mb-1">15 Vol.</span>
+                                <h4 class="font-bold text-sm">Event & Operations</h4>
+                                <p class="text-xs text-gray-300 mt-2">Setup venue, operasional rute, water station, dan
+                                    runners support.</p>
+                            </div>
+                            <div class="bg-white/10 p-5 rounded-2xl border border-white/10">
+                                <span class="font-extrabold text-2xl text-brand-gold block mb-1">10 Vol.</span>
+                                <h4 class="font-bold text-sm">Creative & Media</h4>
+                                <p class="text-xs text-gray-300 mt-2">Dokumentasi foto/video, kelola konten TikTok/IG, &
+                                    desain visual.</p>
+                            </div>
+                            <div class="bg-white/10 p-5 rounded-2xl border border-white/10">
+                                <span class="font-extrabold text-2xl text-brand-gold block mb-1">10 Vol.</span>
+                                <h4 class="font-bold text-sm">PR & Partnership</h4>
+                                <p class="text-xs text-gray-300 mt-2">Pelayanan sponsor, media partner, registrasi &
+                                    pusat informasi.</p>
+                            </div>
+                            <div class="bg-white/10 p-5 rounded-2xl border border-white/10">
+                                <span class="font-extrabold text-2xl text-brand-gold block mb-1">15 Vol.</span>
+                                <h4 class="font-bold text-sm">Logistics & Venue</h4>
+                                <p class="text-xs text-gray-300 mt-2">Penataan lokasi, distribusi racepack & medali,
+                                    serta kebersihan.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ==================== HALAMAN 6: RAB & SPONSOR ==================== -->
+        <div id="page-sponsor" class="page-content">
+            <section class="py-16 bg-brand-cream">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-3xl mx-auto mb-16">
+                        <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-brand-dark mb-4">Rencana
+                            Anggaran & Sponsorship</h2>
+                        <div class="w-24 h-1 bg-brand-gold mx-auto mb-4"></div>
+                        <p class="text-gray-600">Transparansi anggaran pengeluaran, target pemasukan, serta penawaran
+                            paket sponsorship.</p>
+                    </div>
+
+                    <!-- REKAP KEUANGAN -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+                        <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow text-center">
+                            <span class="text-xs text-gray-500 font-semibold block uppercase">Total Target
+                                Pemasukan</span>
+                            <span class="font-heading font-black text-3xl text-brand-green">Rp 215.000.000</span>
+                            <span class="text-[11px] text-gray-400 block mt-1">Registrasi Peserta + Sponsor</span>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow text-center">
+                            <span class="text-xs text-gray-500 font-semibold block uppercase">Total Estimasi
+                                Pengeluaran</span>
+                            <span class="font-heading font-black text-3xl text-red-600">Rp 267.000.000</span>
+                            <span class="text-[11px] text-gray-400 block mt-1">Perizinan, Venue, Racepack, Guest
+                                Star</span>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow text-center">
+                            <span class="text-xs text-gray-500 font-semibold block uppercase">Estimasi Defisit (Covered
+                                by Sponsor)</span>
+                            <span class="font-heading font-black text-3xl text-yellow-600">Rp 78.700.000</span>
+                            <span class="text-[11px] text-gray-400 block mt-1">Termasuk Dana Cadangan 10%</span>
+                        </div>
+                    </div>
+
+                    <!-- PAKET SPONSOR -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="bg-white p-6 rounded-2xl border-2 border-brand-gold shadow-lg">
+                            <span
+                                class="bg-brand-gold text-brand-dark text-[10px] font-extrabold px-3 py-1 rounded-full uppercase">Platinum
+                                Tier</span>
+                            <h3 class="font-heading font-extrabold text-2xl text-brand-dark my-3">Rp 30.000.000</h3>
+                            <ul class="text-xs text-gray-600 space-y-2">
+                                <li>• Logo utama pada jersey & backdrop</li>
+                                <li>• Stand / Booth khusus di venue</li>
+                                <li>• Promosi khusus media sosial</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl border border-gray-300 shadow">
+                            <span
+                                class="bg-yellow-400 text-brand-dark text-[10px] font-extrabold px-3 py-1 rounded-full uppercase">Gold
+                                Tier</span>
+                            <h3 class="font-heading font-extrabold text-2xl text-brand-dark my-3">Rp 15.000.000</h3>
+                            <ul class="text-xs text-gray-600 space-y-2">
+                                <li>• Logo pada backdrop & banner</li>
+                                <li>• Publikasi digital & ad-libs MC</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl border border-gray-300 shadow">
+                            <span
+                                class="bg-gray-300 text-gray-800 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase">Silver
+                                Tier</span>
+                            <h3 class="font-heading font-extrabold text-2xl text-brand-dark my-3">Rp 10.000.000</h3>
+                            <ul class="text-xs text-gray-600 space-y-2">
+                                <li>• Logo pada media promosi</li>
+                                <li>• Penyebutan nama oleh MC</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl border border-gray-300 shadow">
+                            <span
+                                class="bg-amber-600 text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase">Bronze
+                                Tier</span>
+                            <h3 class="font-heading font-extrabold text-2xl text-brand-dark my-3">Rp 5.000.000</h3>
+                            <ul class="text-xs text-gray-600 space-y-2">
+                                <li>• Logo pada media tertentu</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ==================== HALAMAN 7: DOKUMENTASI (FOTO & VIDEO) ==================== -->
+        <div id="page-dokumentasi" class="page-content">
+            <section class="py-16 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-3xl mx-auto mb-16">
+                        <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-brand-dark mb-4">Galeri
+                            Dokumentasi Kegiatan</h2>
+                        <div class="w-24 h-1 bg-brand-gold mx-auto mb-4"></div>
+                        <p class="text-gray-600">Dokumentasi foto dan momen keseruan acara Nusantara Fun Run 2026 di
+                            Lapangan Gelora Bung Karno & Jalan Jenderal Sudirman Jakarta.</p>
+                    </div>
+
+                    <!-- FOTO GALLERY GRID -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Foto 1: Panggung & Entertainment -->
+                        <div class="group relative overflow-hidden rounded-2xl shadow-lg bg-brand-dark">
+                            <img src="panggung.jpeg" alt="Panggung Utama Nusantara Fun Run"
+                                class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                                <div>
+                                    <span
+                                        class="bg-brand-gold text-brand-dark text-[10px] font-bold px-2 py-0.5 rounded">Hiburan
+                                        & Guest Star</span>
+                                    <h4 class="text-white font-bold text-base mt-1">Penampilan Panggung Utama</h4>
+                                    <p class="text-xs text-gray-300">Kemeriahan konser musik band lokal & penonton di
+                                        venue GBK.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Foto 2: Pelari Jalan Sudirman -->
+                        <div class="group relative overflow-hidden rounded-2xl shadow-lg bg-brand-dark">
+                            <img src="sudirman.jpeg" alt="Pelari Nusantara Fun Run 2026"
+                                class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                                <div>
+                                    <span
+                                        class="bg-brand-green text-white text-[10px] font-bold px-2 py-0.5 rounded">Rute
+                                        Utama</span>
+                                    <h4 class="text-white font-bold text-base mt-1">Pelari di Rute Sudirman</h4>
+                                    <p class="text-xs text-gray-300">Antusiasme peserta mengenakan Jersey resmi
+                                        Nusantara Fun Run.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Foto 3: Garis Start GBK -->
+                        <div class="group relative overflow-hidden rounded-2xl shadow-lg bg-brand-dark">
+                            <img src="1.jpeg" alt="Start Line GBK"
+                                class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                                <div>
+                                    <span
+                                        class="bg-brand-gold text-brand-dark text-[10px] font-bold px-2 py-0.5 rounded">Start
+                                        / Finish Gate</span>
+                                    <h4 class="text-white font-bold text-base mt-1">Garis Start Stadion GBK</h4>
+                                    <p class="text-xs text-gray-300">Countdown awal pelepasan ribuan pelari jam 07.30
+                                        WIB.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Foto 4: Pos Medis & Ambulans -->
+                        <div class="group relative overflow-hidden rounded-2xl shadow-lg bg-brand-dark">
+                            <img src="tim medis.jpeg" alt="Pos Kesehatan Medis"
+                                class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                                <div>
+                                    <span
+                                        class="bg-red-600 text-white text-[10px] font-bold px-2 py-0.5 rounded">Layanan
+                                        Kesehatan</span>
+                                    <h4 class="text-white font-bold text-base mt-1">Tim Medis & Ambulans Standby</h4>
+                                    <p class="text-xs text-gray-300">Penanganan medis sigap untuk menjamin keselamatan
+                                        peserta.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Foto 5: Bundaran HI & Ikon Kota -->
+                        <div class="group relative overflow-hidden rounded-2xl shadow-lg bg-brand-dark">
+                            <img src="bundara.jpeg" alt="Pelari di Bundaran HI"
+                                class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                                <div>
+                                    <span
+                                        class="bg-brand-green text-white text-[10px] font-bold px-2 py-0.5 rounded">Landmark
+                                        Jakarta</span>
+                                    <h4 class="text-white font-bold text-base mt-1">Check Point Bundaran HI</h4>
+                                    <p class="text-xs text-gray-300">Suasana lari melintasi kawasan Monumen Selamat
+                                        Datang.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Foto 6: Pemanasan Bersama -->
+                        <div class="group relative overflow-hidden rounded-2xl shadow-lg bg-brand-dark">
+                            <img src="warming.jpeg" alt="Sesi Warming Up"
+                                class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                                <div>
+                                    <span
+                                        class="bg-brand-gold text-brand-dark text-[10px] font-bold px-2 py-0.5 rounded">Sesi
+                                        Pemanasan</span>
+                                    <h4 class="text-white font-bold text-base mt-1">Warming Up Bersama Instruktur</h4>
+                                    <p class="text-xs text-gray-300">Peserta antusias mengikuti regangan otot sebelum
+                                        flag-off.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-dark text-white border-t border-brand-gold/30 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <i class="fa-solid fa-person-running text-2xl text-brand-gold"></i>
+                        <span class="font-heading font-black text-lg text-white">NUSANTARA FUN RUN</span>
+                    </div>
+                    <p class="text-xs text-gray-400 leading-relaxed">
+                        Tugas Presentasi Rencana Proyek Event Olahraga Kelompok 1 - Kelas MJ23B SDM Mata Kuliah
+                        Manajemen Proyek.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-brand-gold text-sm mb-3">Navigasi Halaman</h4>
+                    <ul class="text-xs text-gray-300 space-y-2">
+                        <li><a href="#" onclick="switchPage('home')" class="hover:text-brand-gold">Beranda</a></li>
+                        <li><a href="#" onclick="switchPage('tentang')" class="hover:text-brand-gold">Tentang Acara</a>
+                        </li>
+                        <li><a href="#" onclick="switchPage('kategori')" class="hover:text-brand-gold">Kategori Lari</a>
+                        </li>
+                        <li><a href="#" onclick="switchPage('rute')" class="hover:text-brand-gold">Rute & Rundown</a>
+                        </li>
+                        <li><a href="#" onclick="switchPage('dokumentasi')" class="hover:text-brand-gold">Dokumentasi
+                                Foto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-brand-gold text-sm mb-3">Tim Penyusun Kelompok 1</h4>
+                    <ul class="text-xs text-gray-300 space-y-1">
+                        <li>1. Nazarruddin Alif (Ketua)</li>
+                        <li>2. Aimel Soleha</li>
+                        <li>3. Sheila Puspita</li>
+                        <li>4. Ade Triyana</li>
+                        <li>5. Bintang Zahra Luthfillah</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-brand-gold text-sm mb-3">Kontak Resmi</h4>
+                    <p class="text-xs text-gray-300 mb-2"><i class="fa-solid fa-envelope text-brand-gold mr-2"></i>
+                        nusantarafunrunid@gmail.com</p>
+                    <p class="text-xs text-gray-300"><i class="fa-solid fa-location-dot text-brand-gold mr-2"></i>
+                        Gelora Bung Karno, Jakarta</p>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-6 text-center text-xs text-gray-500">
+                &copy; 2026 Nusantara Fun Run. Designed for Kelompok 1 Manajemen Proyek MJ23B SDM. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL PENDAFTARAN & BIB GENERATOR -->
+    <div id="register-modal"
+        class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div
+            class="bg-white rounded-3xl shadow-2xl max-w-md w-full p-6 relative border border-brand-gold/30 max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+
+            <!-- FORM STATE -->
+            <div id="form-step">
+                <div class="text-center mb-6">
+                    <h3 class="font-heading font-black text-2xl text-brand-dark">Pendaftaran Akun</h3>
+                    <p class="text-xs text-gray-500 mt-1">Lengkapi data diri Anda untuk klaim Nomor BIB Resmi</p>
+                </div>
+                <form onsubmit="submitForm(event)" class="space-y-4 text-xs">
+                    <div>
+                        <label class="font-bold text-gray-700 block mb-1">Nama Lengkap</label>
+                        <input type="text" id="reg-name" required placeholder="Masukkan nama sesuai KTP"
+                            class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-brand-green">
+                    </div>
+                    <div>
+                        <label class="font-bold text-gray-700 block mb-1">Alamat Email</label>
+                        <input type="email" id="reg-email" required placeholder="contoh@email.com"
+                            class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-brand-green">
+                    </div>
+                    <div>
+                        <label class="font-bold text-gray-700 block mb-1">Nomor Handphone / WhatsApp</label>
+                        <input type="tel" id="reg-phone" required placeholder="08xxxxxxxxxx"
+                            class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-brand-green">
+                    </div>
+                    <div>
+                        <label class="font-bold text-gray-700 block mb-1">Pilih Kategori Race</label>
+                        <div class="grid grid-cols-3 gap-2">
+                            <label
+                                class="cursor-pointer border border-gray-300 rounded-xl p-2 text-center hover:border-brand-green">
+                                <input type="radio" name="race_category" value="5K" checked class="hidden peer">
+                                <span class="peer-checked:font-bold peer-checked:text-brand-green block">5K</span>
+                            </label>
+                            <label
+                                class="cursor-pointer border border-gray-300 rounded-xl p-2 text-center hover:border-brand-green">
+                                <input type="radio" name="race_category" value="10K" class="hidden peer">
+                                <span class="peer-checked:font-bold peer-checked:text-brand-green block">10K</span>
+                            </label>
+                            <label
+                                class="cursor-pointer border border-gray-300 rounded-xl p-2 text-center hover:border-brand-green">
+                                <input type="radio" name="race_category" value="21K" class="hidden peer">
+                                <span class="peer-checked:font-bold peer-checked:text-brand-green block">21K
+                                    (Half)</span>
+                            </label>
+                        </div>
+                    </div>
+                    <button type="submit"
+                        class="w-full bg-brand-green hover:bg-brand-dark text-white font-bold py-3 rounded-xl shadow-lg mt-4 transition">
+                        Lanjut Pembayaran & Dapatkan BIB
+                    </button>
+                </form>
+            </div>
+
+            <!-- RESULT BIB STATE -->
+            <div id="bib-step" class="hidden text-center">
+                <div class="bg-brand-green text-white p-4 rounded-2xl mb-4 border-2 border-brand-gold">
+                    <p class="text-[10px] text-brand-gold font-bold uppercase tracking-wider">NUSANTARA FUN RUN 2026</p>
+                    <p class="text-xs text-gray-200">SELAMAT! ANDA TERDAFTAR</p>
+                    <div id="bib-number-display"
+                        class="font-heading font-black text-5xl text-brand-gold my-2 tracking-widest">0826</div>
+                    <p id="bib-name-display" class="text-sm font-bold uppercase">NAMA PESERTA</p>
+                    <p id="bib-cat-display"
+                        class="text-xs bg-brand-gold/20 inline-block px-3 py-0.5 rounded text-brand-gold mt-1 font-semibold">
+                        Kategori 10K</p>
+                </div>
+                <p class="text-xs text-gray-600 mb-4">Bukti pendaftaran dan instruksi pengambilan Race Pack telah
+                    dikirimkan ke email Anda.</p>
+                <button onclick="closeModal()"
+                    class="w-full bg-brand-gold text-brand-dark font-bold py-2.5 rounded-xl">Selesai & Tutup</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT FOR PAGE SWITCHING & INTERACTIVITY -->
+    <script>
+        // PAGE SWITCHER
+        function switchPage(pageId) {
+            document.querySelectorAll('.page-content').forEach(el => el.classList.remove('active'));
+            const targetPage = document.getElementById('page-' + pageId);
+            if (targetPage) targetPage.classList.add('active');
+
+            // Highlight nav tab
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('text-brand-gold', 'font-bold');
+                btn.classList.add('text-white');
+            });
+            const activeNav = document.getElementById('nav-' + pageId);
+            if (activeNav) {
+                activeNav.classList.add('text-brand-gold', 'font-bold');
+                activeNav.classList.remove('text-white');
+            }
+
+            // Close mobile menu if open
+            document.getElementById('mobile-menu').classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // MOBILE MENU TOGGLE
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // COUNTDOWN TIMER
+        const targetDate = new Date("September 20, 2026 05:00:00").getTime();
+        setInterval(() => {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance > 0) {
+                document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+                document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+                document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+                document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
+            }
+        }, 1000);
+
+        // MODAL FUNCTIONS
+        function openModal() {
+            document.getElementById('register-modal').classList.remove('hidden');
+            document.getElementById('form-step').classList.remove('hidden');
+            document.getElementById('bib-step').classList.add('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('register-modal').classList.add('hidden');
+        }
+
+        function submitForm(e) {
+            e.preventDefault();
+            const name = document.getElementById('reg-name').value;
+            const category = document.querySelector('input[name="race_category"]:checked').value;
+            const randomBIB = Math.floor(1000 + Math.random() * 9000);
+
+            document.getElementById('bib-number-display').innerText = randomBIB;
+            document.getElementById('bib-name-display').innerText = name;
+            document.getElementById('bib-cat-display').innerText = "Kategori " + category;
+
+            document.getElementById('form-step').classList.add('hidden');
+            document.getElementById('bib-step').classList.remove('hidden');
+        }
+    </script>
+</body>
+
+</html>
